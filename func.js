@@ -10,6 +10,9 @@ let len = (xs) => xs.length;
 let cons = (x) => (xs) => [x, ...xs];
 // cons(2)(cons(1)(empty())) // [2,1]
 
+let list = (x) => (y) => cons(x)(cons(y)(empty()));
+// list(1)(list(2)(3)) // [1,[2,3]]
+
 let head = (xs) => xs[0];
 // head([1,2,3]) // 1
 
@@ -21,6 +24,9 @@ let init = (xs) => xs.slice(0, len(xs) - 1);
 
 let tail = (xs) => xs.slice(1, len(xs));
 // tail([1,2,3,4]) // [2,3,4]
+
+let take = (n) => (xs) => xs.slice(0, n);
+// take(2)([1,2,3,4,5]) // [1,2]
 
 let reverse = (xs) => [...xs].reverse();
 // reverse([1,2,3]) // [3,2,1]
@@ -69,5 +75,3 @@ let complement = (xxs) => filter(x => not(includes(x)(head(tail([...xxs])))))(he
 
 let foldr = (fn) => (z) => (xs) => undefined;
 // foldr(x => z => x * z)(1)([1,2,3,4,5]) // 120
-
-cons(head(tail(reverse(cons(foldl(z => x => z + x)(0)(cons(head(init(sort(set(reverse(cons(32)(reverse(cons(69)(last(split(2)(cons(412)(cons(90)(cons(42)(cons(last(cons(51)(map(x => x * 2)(filter(x => x === limit(50)(100)(x))(reverse(insert(91)(3)(cons(10)(cons(5)(init(reverse(cons(2)(cons(1)(empty())))))))))))))(empty())))))))))))))))(range(5))))(cons(4)(empty()))))))(empty())
